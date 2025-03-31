@@ -1,0 +1,52 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Categorizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .email-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .email-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .category {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .subject {
+            display: block;
+            margin: 5px 0;
+        }
+        .snippet {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Categorized Emails</h1>
+    <ul class="email-list">
+        {% for email in emails %}
+            <li class="email-item">
+                <span class="category">{{ email.category }}</span>
+                <span class="subject">{{ email.subject }}</span>
+                <span class="snippet">{{ email.snippet }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/disconnect">Disconnect Gmail</a>
+</body>
+</html>
